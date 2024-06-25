@@ -4,6 +4,8 @@
     <title>Event</title>
 </head>
 <body>
+    <div>
+        <!--onchange-->
     <input type="text" onchange="n()"/>
 
     <script>
@@ -12,7 +14,64 @@
         }
 
     </script>
-</body>
+    </div>
+<hr>
+
+<div>
+    <!--onclick-->
+
+    <button onclick="console.log('Hello')">Hello</button>
+
+    <button onclick="console.log('Hello friend')">Hello friend </button>
+    </div>
+    <hr>
+
+<div>
+    <!--onmousover-->
+
+    <img src="https://wallpapercave.com/wp/wp8029548.jpg" height="280" onmouseover="b()"/>
+    <script>
+        function a() {
+            console.log('AAAAAAAA')
+        }
+
+        function b() {
+            console.log('BBBBBBB')
+        }
+    </script>
+</div>
+<hr>
+
+<div>
+    <!--over and out-->
+    
+   <img src="https://wallpapercave.com/wp/wp8029548.jpg" height="300px" 
+   onmouseover="a()"
+   onmouseout="c()"/>
+
+   <script>
+       function a(){
+        console.log('AAAAAAAAAAAAAA')
+    }
+    function c(){
+        console.log('CCCCCCCCCCCCCC')
+    }
+   </script>
+</div>
+<hr>
+
+    <!--onchange-->
+    <div>
+    <body onload="n()">
+            <input type="text" onchange="n()"/>
+        </body>
+            <script>
+                function n(){
+                    console.log('page is loaded')
+                }
+            </script>
+</div>
 </body>
 </html>
+
    
