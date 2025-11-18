@@ -1,0 +1,81 @@
+Q.1) Python program that demonstrates the hill climbing algorithm  
+ to find the maximum of a mathematical function. (For example f(x) = -x² + 4x) 
+ 
+import random 
+# Define the function 
+def f(x): 
+    return -x**2 + 4*x 
+ 
+# Hill Climbing Algorithm 
+def hill_climb(func, x_start, step_size, max_iterations): 
+    current_x = x_start 
+    current_value = func(current_x) 
+ 
+    for i in range(max_iterations): 
+        # Generate a new candidate solution (neighbor) 
+        new_x = current_x + random.uniform(-step_size, step_size) 
+        new_value = func(new_x) 
+ 
+        # If the new solution is better, move to it 
+        if new_value > current_value: 
+            current_x = new_x 
+            current_value = new_value 
+ 
+    return current_x, current_value 
+ 
+# Parameters 
+x_start = random.uniform(0, 4) 
+step_size = 0.1 
+max_iterations = 1000 
+best_x, best_value = hill_climb(f, x_start, step_size, max_iterations) 
+print("Function: f(x) = -x^2 + 4x") 
+print(f"Starting point: {x_start:.4f}") 
+print(f"Maximum value of function is approximately f({best_x:.4f}) = {best_value:.4f}") 
+Output: 
+Function: f(x) = -x^2 + 4x 
+Starting point: 2.5376 
+Maximum value of function is approximately f(1.9998) = 3.9999 
+
+
+Q.2) Write a Python program to implement Depth First Search algorithm. 
+Refer the following graph as an Input for the program. [Initial node=1, Goal node=8] 
+def dfs(graph, start, goal, visited=None): 
+if visited is None: 
+visited = [] 
+visited.append(start) 
+print(start, end=" ") 
+    if start == goal: 
+        return True 
+ 
+    for neighbor in graph[start]: 
+        if neighbor not in visited: 
+            if dfs(graph, neighbor, goal, visited): 
+                return True 
+    return False 
+ 
+ 
+# Define the graph as an adjacency list 
+graph = { 
+    1: [2, 3], 
+    2: [4, 5], 
+    3: [6, 7], 
+    4: [8], 
+    5: [8], 
+    6: [8], 
+    7: [8], 
+    8: [] 
+} 
+ 
+start_node = 1 
+goal_node = 8 
+ 
+print("Depth First Search Traversal:") 
+found = dfs(graph, start_node, goal_node) 
+if found: 
+print("\nGoal node", goal_node, "found!") 
+else: 
+print("\nGoal node", goal_node, "not found.") 
+Output: 
+Depth First Search Traversal: 
+1 2 4 8  
+Goal node 8 found!
